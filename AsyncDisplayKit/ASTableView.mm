@@ -77,11 +77,13 @@ static NSString * const kCellReuseIdentifier = @"_ASTableViewCell";
 {
   _node = node;
   
-  self.backgroundColor = node.backgroundColor;
-  self.selectionStyle = node.selectionStyle;
-  self.accessoryType = node.accessoryType;
-  self.separatorInset = node.seperatorInset;
-  self.clipsToBounds = node.clipsToBounds;
+  if (node) {
+    self.backgroundColor = node.backgroundColor;
+    self.selectionStyle = node.selectionStyle;
+    self.accessoryType = node.accessoryType;
+    self.separatorInset = node.seperatorInset;
+    self.clipsToBounds = node.clipsToBounds;
+  }
   
   [node __setSelectedFromUIKit:self.selected];
   [node __setHighlightedFromUIKit:self.highlighted];
